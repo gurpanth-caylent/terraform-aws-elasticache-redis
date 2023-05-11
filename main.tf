@@ -4,7 +4,7 @@ resource "aws_elasticache_replication_group" "redis" {
   parameter_group_name = var.global_replication_group_id == null ? aws_elasticache_parameter_group.redis.name : null
   subnet_group_name    = aws_elasticache_subnet_group.redis.name
   security_group_ids   = concat(var.security_group_ids, [aws_security_group.redis.id])
-  snapshot_arns        = var.snapshot_arns
+  snapshot_name        = var.snapshot_name
 
   preferred_cache_cluster_azs = var.preferred_cache_cluster_azs
   replication_group_id        = var.global_replication_group_id == null ? "${var.name_prefix}-redis" : "${var.name_prefix}-redis-replica"
