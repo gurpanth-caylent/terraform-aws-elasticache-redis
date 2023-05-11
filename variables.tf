@@ -232,9 +232,9 @@ variable "user_group_ids" {
   description = "User Group ID to associate with the replication group"
 }
 
-variable "snapshot_arns" {
+variable "snapshot_name" {
   description = "List of snapshot ARNs to restore from"
-  type        = list(string)
+  type        = string
   default     = null
 }
 
